@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 # 다른 파일에 있는 것을 추가하는 부분(헤더 같은 역할)
-# to do - 주석달기, 학기 이해
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
