@@ -1,11 +1,8 @@
-from django.conf.urls import include, url
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 urlpatterns = [
-    # url(r'^$', 'mysite.views.home', name='home'),
-    url(r'^cclab/project/$', view.project, name = 'project'),
-    url(r'^cclab/people/$', view.people, name = 'people'),
-    url(r'^cclab/project/$', view.project, name = 'project'),
+    url(r'^cclab_website/', include('cclab_website.urls', namespace = "cclab_website")),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('cclab.urls')),
+
 ]
