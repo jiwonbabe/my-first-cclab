@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cclab_website'
+    'cclab_website',
+    'angular'
 )
 
 MIDDLEWARE_CLASSES = (

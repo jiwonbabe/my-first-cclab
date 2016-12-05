@@ -29,7 +29,7 @@ class Teaching(models.Model):
     class_name_kr = models.CharField(max_length=200)
     class_name_en = models.CharField(max_length=200)
     class_intro = models.TextField()
-    year = models.DateField()
+    year = models.IntegerField()
     semester = models.BooleanField()
 
 

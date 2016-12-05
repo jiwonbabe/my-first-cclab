@@ -3,3 +3,4 @@ __pycache__
 virenv
 db.sqlite3
 .DS_Store
+angular/node_modules/

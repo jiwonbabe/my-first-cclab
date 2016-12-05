@@ -9,6 +9,7 @@
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 
+	<script>document.write('<base href="' + document.location + '" />');</script>
 	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
 	<link rel="stylesheet" href="{% static "css/font-awesome.min.css"%}">
 	<link rel="stylesheet" href="{% static "css/animate.min.css"%}">
@@ -17,6 +18,7 @@
 	<link rel="stylesheet" href="{% static "css/nivo_themes/default/default.css"%}">
 	<link rel="stylesheet" href="{% static "css/style.css"%}">
 	<link href= 'https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -127,12 +129,7 @@
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp project_item" data-wow-delay="0.6s">
-				<i class="icon-cloud medium-icon"></i>
-				<h3 class="project_title">Title</h3>
-				<hr>
-				<p><big></big></p>
-				<p>Funded by <b class="project_fund">Ministry of Lorem Ipsum...</b></p>
-				<p class="project_period">Jun 01, 2013 ~ May 31, 2017</p>
+				<project>Loading Project content here ...</project>
 			</div>
 		</div>
 </section>
@@ -174,11 +171,19 @@
 					<hr>
 				</div>
 				<!-- ISO section -->
+				<div class="publication_area">
+					<p class="publication_year"><big>year</big></p>
+					<hr>
+					<p class="author">author author author author author author</p>
+					<p class="publication_title"><a href="localhost:8000/cclab_website/" target="_self"><big>publication title publication title publication title</big></a></p>
+					<p class="publisher">publisher publisher publisher publisher</p>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
+<!-- publication overlay section -->
 <!-- teaching section -->
 <section id="teaching">
 	<div class="container">
@@ -189,10 +194,19 @@
 					<h1 class="heading bold">TEACHING</h1>
 					<hr>
 				</div>
+				<div class="teaching_area">
+					<p class="teaching_year"><big>year</big></p>
+					<p class="teaching_semester"><big>semester</big></p>
+					<hr>
+					<p class="class_name_kr">class name korean class name korean class name korean</p>
+					<p class="class_name_en"><a href="localhost:8000/cclab_website/" target="_self"><big>class name english class name english class name english</big></a></p>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<!-- teaching overlay section -->
 
 <!-- contact section -->
 <section id="contact">
@@ -266,6 +280,13 @@
 <script src="{% static "js/jquery.backstretch.min.js" %}"></script>
 <script src="{% static "js/wow.min.js" %}"></script>
 <script src="{% static "js/custom.js" %}"></script>
-
+<script src="https://unpkg.com/core-js/client/shim.min.js"></script>
+<script src="https://unpkg.com/zone.js@0.6.25?main=browser"></script>
+<script src="https://unpkg.com/reflect-metadata@0.1.8"></script>
+<script src="https://unpkg.com/systemjs@0.19.39/dist/system.src.js"></script>
+<script src="/app/systemjs.config.js"></script>
+<script>
+	System.import('app').catch(function(err){ console.error(err); });
+</script>
 </body>
 </html>
