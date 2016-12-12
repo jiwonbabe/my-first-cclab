@@ -1,0 +1,308 @@
+swagger: '2.0'
+info:
+  title: CC Lab. API
+  description: CC Lab. Website API
+  version: 1.0.0
+host: cclab.snu.ac.kr
+schemes:
+  - https
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /project:
+    get:
+      summary: Project
+      description: |
+        The Project endpoint returns information about on-going projects in CC Lab.
+        The response includes project name, introduction, organization that assgin
+        projects to CC Lab and project period. 
+      tags:
+        - Project
+      responses:
+        '200':
+          description: Information about on-going projects
+          schema:
+            $ref: '#/definitions/Project_list'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /people:
+    get:
+      summary: People profile
+      description: >-
+        The people endpoint returns information about people in CC Lab.
+      tags:
+        - People
+      responses:
+        '200':
+          description: Profile information
+          schema:
+            $ref: '#/definitions/People_list'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /publication/:page:
+    get:
+      summary: Publication 
+      description: |
+        The Publication endpoint returns information about the
+        publication ordered by publish year. The response includes
+        publish year, author, title and publisher.
+      tags:
+        - Publications
+      responses:
+        '200':
+          description: An array of publications
+          schema:
+            $ref: '#/definitions/Publication_list'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /pubOverlay/:ID:
+    get:
+      summary: Publication overlay dialog
+      description: |
+        The Publication overlay dialog endpoint returns detailed
+        information about the publication. The response includes
+        author, title, publisher and abstract of paper.
+      tags:
+        - Publication_Overlay
+      responses:
+        '200':
+          description: Detailed information of publication
+          schema:
+            $ref: '#/definitions/Publication_Overlay'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /teaching/:page:
+    get:
+      summary: Teaching
+      description: |
+        The teaching endpoint returns information about classes that CC Lab has
+        opened. The response includes time when class has been opened, class name
+        in Korean and English.
+      tags:
+        - Teaching
+      
+      responses:
+        '200':
+          description: An array of classes
+          schema:
+            $ref: '#/definitions/Teaching_list'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /teachOverlay/:ID:
+    get:
+      summary: Teaching overlay dialog
+      description: |
+        The teaching overlay dialog endpoint returns detailed introduction of the each class.
+        The response includes the time when class has been opened class name in Korean and English and introduction of class.
+      tags:
+        - Teaching_Overlay
+      responses:
+        '200':
+          description: Introduction of class.
+          schema:
+            $ref: '#/definitions/Teaching_Overlay'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  
+  Project_list:
+    type: object
+    properties:
+      error:
+        type: boolean
+        description: result of judgement
+      message:
+        type: string
+        description: error message
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Project'
+  Project:
+    type: object
+    properties:
+      name:
+        type: string
+        description: The name of the project.
+      icon:
+        type: string
+        description: The icon of the project.
+      intro:
+        type: string
+        description: Project introduction
+      organization:
+        type: string
+        description: Organization that assgin projects to CC Lab.
+      start_date:
+        type: object
+        properties:
+          year:
+            type: integer
+            description: The start year of project.
+          month:
+            type: integer
+            description: The start month of project.
+          date:
+            type: integer
+            description: The start date of project.
+      end_date:
+        type: object
+        properties:
+          year:
+            type: integer
+            description: The end year of project.
+          month:
+            type: integer
+            description: The end month of project.
+          date:
+            type: integer
+            description: The end date of project.
+  People_list:
+    type: object
+    properties:
+      error:
+        type: boolean
+        description: result of judgement
+      message:
+        type: string
+        description: error message
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/People'
+  People:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Name of person.
+      title:
+        type: string
+        description: Title of person
+      email:
+        type: string
+        description: Email address of person
+      picture:
+        type: string
+        description: Image URL of the person.
+  Publication_list:
+    type: object
+    properties:
+      error: 
+        type: boolean
+        description: result of judgement
+      message: 
+        type: string
+        description: error message
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Publication'
+  Publication:
+    type: object
+    properties:
+      publication_id:
+        type: string
+        description: >-
+          Unique identifier representing a specific publication classified by several
+          factors including title. For example, every publication has different title
+          name and at the same time, their publication_id is different each other.
+      year:
+        type: string
+        description: Publish year of each publication.
+      author:
+        type: string
+        description: Author name of publication.
+      title:
+        type: string
+        description: Title of publication.
+      publisher:
+        type: string
+        description: Publisher of publication.
+  Publication_Overlay:
+    type: object
+    properties:
+      author:
+        type: string
+        description: Author name of publication.
+      title:
+        type: string
+        description: Title of publication.
+      publisher:
+        type: string
+        description: Publisher of publication.
+      abstract:
+        type: string
+        description: Abstract of publication.
+  Teaching_list:
+    type: object
+    properties:
+      error: 
+        type: boolean
+        description: result of judgement
+      message: 
+        type: string
+        description: error message
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/Teaching'
+  Teaching:
+    type: object
+    properties:
+      teaching_id:
+        type: string
+        description: >-
+          Unique identifier representing a specific teaching classified by several
+          factors including class name. For example, every teaching has different
+          name and at the same time, their teaching_id is different each other.
+      time:
+        type: object
+        properties:
+          year:
+            type: integer
+            description: The year when class has been opened.
+          semester:
+            type: integer
+            description: The semester when class has been opened.
+      class_name_kr:
+        type: string
+        description: Class name in Korean.
+      class_name_en:
+        type: string
+        description: Class name in English.
+  Teaching_Overlay:
+    type: object
+    properties:
+      class_name_kr:
+        type: string
+        description: Class name in Korean.
+      class_name_en:
+        type: string
+        description: Class name in English.
+      class_intro:
+        type: string
+        description: Class introduction.
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
