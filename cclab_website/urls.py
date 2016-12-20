@@ -9,5 +9,4 @@ urlpatterns = [
     url(r'^pubOverlay/(?P<publication_id>\d+)/$', views.pubOverlay, name = 'publicationOverlay'),
     url(r'^teaching/(?P<page>\d+)/$', views.teaching, name = 'teaching'),
     url(r'^teachOverlay/(?P<teaching_id>\d+)/$', views.teachOverlay, name = 'teachingOverlay'),
-    # url(r'', include('cclab.urls')),
 ]

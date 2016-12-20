@@ -9,29 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var project_service_1 = require('./project.service');
+var teaching_service_1 = require('./teaching.service');
 // Add the RxJS Observable operators.
 require('./rxjs-operators');
-var ProjectComponent = (function () {
-    function ProjectComponent(projectService) {
-        this.projectService = projectService;
+var TeachingComponent = (function () {
+    function TeachingComponent(teachingService) {
+        this.teachingService = teachingService;
         this.mode = 'Observable';
     }
-    ProjectComponent.prototype.ngOnInit = function () { this.getProjects(); };
-    ProjectComponent.prototype.getProjects = function () {
+    TeachingComponent.prototype.ngOnInit = function () { this.getTeachings(); };
+    TeachingComponent.prototype.getTeachings = function () {
         var _this = this;
-        this.projectService.getProjects()
-            .subscribe(function (projects) { return _this.projects = projects; });
+        this.teachingService.getTeachings()
+            .subscribe(function (teachings) { return _this.teachings = teachings; });
     };
-    ProjectComponent = __decorate([
+    TeachingComponent = __decorate([
         core_1.Component({
-            selector: 'project',
-            templateUrl: '/static/templates/project.component.html',
-            providers: [project_service_1.ProjectService]
+            selector: 'teaching',
+            templateUrl: '/static/templates/teaching.component.html',
+            providers: [teaching_service_1.TeachingService]
         }), 
-        __metadata('design:paramtypes', [project_service_1.ProjectService])
-    ], ProjectComponent);
-    return ProjectComponent;
+        __metadata('design:paramtypes', [teaching_service_1.TeachingService])
+    ], TeachingComponent);
+    return TeachingComponent;
 }());
-exports.ProjectComponent = ProjectComponent;
-//# sourceMappingURL=project.component.js.map
+exports.TeachingComponent = TeachingComponent;
+//# sourceMappingURL=teaching.component.js.map

@@ -1,0 +1,7 @@
+<div *ngFor="let publication of publications">
+<p><b>{{ publication.fields.year }}</b></p>
+<hr>
+<p>{{ publication.fields.author }}</p>
+<p><a href="localhost:8000" target="_self"><b>{{publication.fields.title}}</b></a></p>
+<p>{{ publication.fields.publisher }}</p>
+</div>

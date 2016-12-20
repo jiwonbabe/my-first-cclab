@@ -1,0 +1,7 @@
+<div *ngFor="let teaching of teachings">
+  <p><b>{{teaching.fields.year}}</b></p>
+  <p><b>{{teaching.fields.semester}}</b></p>
+  <hr>
+  <p>{{teaching.fields.class_name_kr}}</p>
+  <p><a href="localhost:8000" target="_self"><b>{{teaching.fields.class_name_en}}</b></a></p>
+</div>

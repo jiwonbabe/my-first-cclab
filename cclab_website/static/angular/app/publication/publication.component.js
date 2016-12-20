@@ -9,29 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var project_service_1 = require('./project.service');
+var publication_service_1 = require('./publication.service');
 // Add the RxJS Observable operators.
 require('./rxjs-operators');
-var ProjectComponent = (function () {
-    function ProjectComponent(projectService) {
-        this.projectService = projectService;
+var PublicationComponent = (function () {
+    function PublicationComponent(publicationService) {
+        this.publicationService = publicationService;
         this.mode = 'Observable';
     }
-    ProjectComponent.prototype.ngOnInit = function () { this.getProjects(); };
-    ProjectComponent.prototype.getProjects = function () {
+    PublicationComponent.prototype.ngOnInit = function () { this.getPublications(); };
+    PublicationComponent.prototype.getPublications = function () {
         var _this = this;
-        this.projectService.getProjects()
-            .subscribe(function (projects) { return _this.projects = projects; });
+        this.publicationService.getPublications()
+            .subscribe(function (publications) { return _this.publications = publications; });
     };
-    ProjectComponent = __decorate([
+    PublicationComponent = __decorate([
         core_1.Component({
-            selector: 'project',
-            templateUrl: '/static/templates/project.component.html',
-            providers: [project_service_1.ProjectService]
+            selector: 'publication',
+            templateUrl: '/static/templates/publication.component.html',
+            providers: [publication_service_1.PublicationService]
         }), 
-        __metadata('design:paramtypes', [project_service_1.ProjectService])
-    ], ProjectComponent);
-    return ProjectComponent;
+        __metadata('design:paramtypes', [publication_service_1.PublicationService])
+    ], PublicationComponent);
+    return PublicationComponent;
 }());
-exports.ProjectComponent = ProjectComponent;
-//# sourceMappingURL=project.component.js.map
+exports.PublicationComponent = PublicationComponent;
+//# sourceMappingURL=publication.component.js.map

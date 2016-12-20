@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { ProjectComponent } from './project/project.component';
+import { PublicationComponent } from './publication/publication.component';
+import { TeachingComponent } from './teaching/teaching.component';
 
 @NgModule({
   imports: [
@@ -12,7 +14,7 @@ import { ProjectComponent } from './project/project.component';
     HttpModule,
     JsonpModule
   ],
-  declarations: [ ProjectComponent ],
-  bootstrap:    [ ProjectComponent ]
+  declarations: [ ProjectComponent, PublicationComponent, TeachingComponent ],
+  bootstrap:    [ ProjectComponent, PublicationComponent, TeachingComponent]
 })
 export class AppModule { }

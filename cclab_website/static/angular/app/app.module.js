@@ -13,6 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var project_component_1 = require('./project/project.component');
+var publication_component_1 = require('./publication/publication.component');
+var teaching_component_1 = require('./teaching/teaching.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,8 +26,8 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 http_1.JsonpModule
             ],
-            declarations: [project_component_1.ProjectComponent],
-            bootstrap: [project_component_1.ProjectComponent]
+            declarations: [project_component_1.ProjectComponent, publication_component_1.PublicationComponent, teaching_component_1.TeachingComponent],
+            bootstrap: [project_component_1.ProjectComponent, publication_component_1.PublicationComponent, teaching_component_1.TeachingComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

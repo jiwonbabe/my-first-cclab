@@ -13,10 +13,10 @@ import './rxjs-operators';
 export class ProjectComponent implements OnInit {
   projects: Project[];
   mode = 'Observable';
-  constructor (private heroService: ProjectService) {}
+  constructor (private projectService: ProjectService) {}
   ngOnInit() { this.getProjects(); }
   getProjects() {
-    this.heroService.getProjects()
+    this.projectService.getProjects()
                      .subscribe(
                        projects => this.projects = projects);
   }
