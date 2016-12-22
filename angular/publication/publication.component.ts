@@ -13,10 +13,11 @@ import './rxjs-operators';
 export class PublicationComponent implements OnInit {//OnInit 부분 복습 필요
   publications: Publication[];
   mode = 'Observable';
+  overlay: Publication;
   constructor (private publicationService: PublicationService) {}
-  ngOnInit() { this.getPublications(); }
-  getPublications() {
-    this.publicationService.getPublications()
+  ngOnInit() { this.getPublications(1); }
+  getPublications(page : number) {
+    this.publicationService.getPublications(page)
                      .subscribe(
                        publications => this.publications = publications);
   }

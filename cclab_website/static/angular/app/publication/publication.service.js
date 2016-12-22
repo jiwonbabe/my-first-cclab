@@ -8,15 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 var PublicationService = (function () {
     function PublicationService(http) {
         this.http = http;
-        this.publicationUrl = '/publication/1/';
+        this.publicationUrl = '/publication/'; //django 쪽 문법아닌가?
     }
-    PublicationService.prototype.getPublications = function () {
-        return this.http.get(this.publicationUrl)
+    PublicationService.prototype.getPublications = function (page) {
+        return this.http.get(this.publicationUrl + page)
             .map(this.extractData);
     };
     PublicationService.prototype.extractData = function (res) {
@@ -24,11 +24,11 @@ var PublicationService = (function () {
         console.log(body);
         return body || [];
     };
+    PublicationService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], PublicationService);
     return PublicationService;
 }());
-PublicationService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], PublicationService);
 exports.PublicationService = PublicationService;
 //# sourceMappingURL=publication.service.js.map

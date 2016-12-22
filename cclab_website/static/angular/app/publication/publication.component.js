@@ -17,10 +17,10 @@ var PublicationComponent = (function () {
         this.publicationService = publicationService;
         this.mode = 'Observable';
     }
-    PublicationComponent.prototype.ngOnInit = function () { this.getPublications(); };
-    PublicationComponent.prototype.getPublications = function () {
+    PublicationComponent.prototype.ngOnInit = function () { this.getPublications(1); };
+    PublicationComponent.prototype.getPublications = function (page) {
         var _this = this;
-        this.publicationService.getPublications()
+        this.publicationService.getPublications(page)
             .subscribe(function (publications) { return _this.publications = publications; });
     };
     PublicationComponent = __decorate([

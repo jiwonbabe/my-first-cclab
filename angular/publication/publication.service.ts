@@ -6,12 +6,13 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PublicationService{
-  private publicationUrl = '/publication/1/';  //django 쪽 문법아닌가?
+  private publicationUrl = '/publication/'  //django 쪽 문법아닌가?
+
 
   constructor (private http: Http) {}
 
-  getPublications (): Observable<Publication[]> {
-    return this.http.get(this.publicationUrl)
+  getPublications (page : number): Observable<Publication[]> {
+    return this.http.get(this.publicationUrl + page)
                     .map(this.extractData);
   }
   private extractData(res: Response) {

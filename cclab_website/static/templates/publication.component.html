@@ -1,7 +1,22 @@
-<div *ngFor="let publication of publications">
-<p><b>{{ publication.fields.year }}</b></p>
-<hr>
-<p>{{ publication.fields.author }}</p>
-<p><a href="localhost:8000" target="_self"><b>{{publication.fields.title}}</b></a></p>
-<p>{{ publication.fields.publisher }}</p>
+<div>
+  <div class = publication *ngFor="let publication of publications" (click)="overlay = publication">
+    <p><b>{{ publication.fields.year }}</b></p>
+    <hr>
+    <p>{{ publication.fields.author }}</p>
+    <!--overlay 창 구현-->
+    <p><a href="#"><b>{{publication.fields.title}}</b></a></p>
+    <p>{{ publication.fields.publisher }}</p>
+  </div>
+
+  <div class="popup" [hidden]="!overlay">
+    <div *ngIf="overlay">
+      <p>{{ overlay.fields.author }}</p>
+      <p><b>{{ overlay.fields.title}}</b></p>
+      <p>{{ overlay.fields.publisher }}</p>
+      <p>{{ overlay.fields.abstract }}</p>
+      <a href="#" (click)="overlay = undefined">close</a>
+    </div>
+  </div>
+  <a (click)='getPublications(1)'>1</a><a (click)='getPublications(2)'>2</a><a (click)='getPublications(3)'>3</a>
+  <!--for문 구현 필요(새로운 페이지 자동생성)-->
 </div>
