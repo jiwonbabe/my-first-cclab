@@ -1,0 +1,9 @@
+<div *ngFor="let people of peoples">
+<img  [src]="people.fields.picture" class="img-responsive" alt="team img">
+  <div class="team-des">
+    <h4>{{ people.fields.name }}</h4>
+    <h3>{{ people.fields.title }}</h3>
+    <hr>
+    <li class="email"><a href="mailto:{{ people.fields.email }}" i class="icon-envelope medium-icon wow bounceIn" data-wow-delay="0.3s"></a></li>
+  </div>
+</div>

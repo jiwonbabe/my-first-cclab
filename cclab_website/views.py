@@ -28,25 +28,24 @@ def publication(request, page):
     except EmptyPage:
         publications = paginator.page(paginator.num_pages)
     data = serializers.serialize("json", publications)
-     #data = serializers.serialize("json", publications.object_list)
     return HttpResponse(data, content_type="application/json")
 
 def pubOverlay(request, publication_id):
      data = serializers.serialize("json", Publication.objects.only("author","title", "publisher", "abstract" ))
      return HttpResponse(data, content_type="application/json")
 
-def teaching(request):
-     data = serializers.serialize("json", Teaching.objects.only("teaching_id", "year", "semester", "class_name_kr", "class_name_en"))
-     paginator = Paginator(data, 10) #Show 10 datas per page
+def teaching(request, page):
+    teaching_list = Teaching.objects.only("year", "semester", "class_name_kr","class_name_en")
+    paginator = Paginator(teaching_list, 10) #Show 10 publications per page
+    try:
+        teachings = paginator.page(page)
+    except PageNotAnInteger:
+        teachings = paginator.page(1)
+    except EmptyPage:
+        teachings = paginator.page(paginator.num_pages)
+    data = serializers.serialize("json", teachings)
+    return HttpResponse(data, content_type="application/json")
 
-     page = request.GET.get('page')
-     try:
-         teachings = paginator.page(page)
-     except PageNotAnInteger:
-         teachings = paginator.page(1)
-     except EmptyPage:
-         teachings = paginator.page(paginator.num_pages)
-     return HttpResponse(data, content_type="application/json")
 
 def teachOverlay(request, teaching_id):
     data = serializers.serialize("json", Teaching.objects.only("class_name_kr", "class_name_en", "class_intro"))

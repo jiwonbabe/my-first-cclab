@@ -1,7 +1,20 @@
-<div *ngFor="let teaching of teachings">
-  <p><b>{{teaching.fields.year}}</b></p>
-  <p><b>{{teaching.fields.semester}}</b></p>
-  <hr>
-  <p>{{teaching.fields.class_name_kr}}</p>
-  <p><a href="localhost:8000" target="_self"><b>{{teaching.fields.class_name_en}}</b></a></p>
+<div>
+  <div class = teaching *ngFor="let teaching of teachings" (click)="overlay = teaching">
+    <p><b>{{ teaching.fields.year }}</b></p>
+    <p><b>{{ teaching.fields.semester }}</b></p>
+    <hr>
+    <p>{{ teaching.fields.class_name_kr }}</p>
+    <p><a href="localhost:8000/"><b>{{ teaching.fields.class_name_en }}</b></a></p>
+  </div>
+<!--overlay 창 구현-->
+<div class="popup" [hidden]="!overlay">
+  <div *ngIf="overlay">
+    <p>{{ overlay.fields.class_name_en }}</p>
+    <p>{{ overlay.fields.class_name_kr}}</p>
+    <p>{{ overlay.fields.class_intro }}</p>
+    <a href="localhost:8000/" (click)="overlay = undefined">close</a>
+  </div>
+</div>
+<a (click)='getTeachings(1)'>1</a><a (click)='getTeachings(2)'>2</a><a (click)='getTeachings(3)'>3</a>
+<!--for문 구현 필요(새로운 페이지 자동생성)-->
 </div>

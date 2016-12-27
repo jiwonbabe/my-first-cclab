@@ -13,7 +13,7 @@ var http_1 = require('@angular/http');
 var PublicationService = (function () {
     function PublicationService(http) {
         this.http = http;
-        this.publicationUrl = '/publication/'; //django 쪽 문법아닌가?
+        this.publicationUrl = '/publication/';
     }
     PublicationService.prototype.getPublications = function (page) {
         return this.http.get(this.publicationUrl + page)

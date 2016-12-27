@@ -9,29 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var teaching_service_1 = require('./teaching.service');
+var people_service_1 = require('./people.service');
 // Add the RxJS Observable operators.
 require('./rxjs-operators');
-var TeachingComponent = (function () {
-    function TeachingComponent(teachingService) {
-        this.teachingService = teachingService;
+var PeopleComponent = (function () {
+    function PeopleComponent(peopleService) {
+        this.peopleService = peopleService;
         this.mode = 'Observable';
     }
-    TeachingComponent.prototype.ngOnInit = function () { this.getTeachings(1); };
-    TeachingComponent.prototype.getTeachings = function (page) {
+    PeopleComponent.prototype.ngOnInit = function () { this.getPeoples(); };
+    PeopleComponent.prototype.getPeoples = function () {
         var _this = this;
-        this.teachingService.getTeachings(page)
-            .subscribe(function (teachings) { return _this.teachings = teachings; });
+        this.peopleService.getPeoples()
+            .subscribe(function (peoples) { return _this.peoples = peoples; });
     };
-    TeachingComponent = __decorate([
+    PeopleComponent = __decorate([
         core_1.Component({
-            selector: 'teaching',
-            templateUrl: '/static/templates/teaching.component.html',
-            providers: [teaching_service_1.TeachingService]
+            selector: 'people',
+            templateUrl: '/static/templates/people.component.html',
+            providers: [people_service_1.PeopleService]
         }), 
-        __metadata('design:paramtypes', [teaching_service_1.TeachingService])
-    ], TeachingComponent);
-    return TeachingComponent;
+        __metadata('design:paramtypes', [people_service_1.PeopleService])
+    ], PeopleComponent);
+    return PeopleComponent;
 }());
-exports.TeachingComponent = TeachingComponent;
-//# sourceMappingURL=teaching.component.js.map
+exports.PeopleComponent = PeopleComponent;
+//# sourceMappingURL=people.component.js.map

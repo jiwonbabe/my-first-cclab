@@ -394,7 +394,7 @@ people section
   text-align: center;
 }
 #people h3 {
-  color: #00c6d7;
+  color: #86c654;
   font-size: 14px;
   font-weight: bold;
 }
@@ -440,9 +440,11 @@ people section
 }
 #people img {
   margin: 0 auto;
+  width: auto;
+  height: 360px;
 }
 
-#people .social-icon li a {
+#people .social-icon div a {
   color: #fff;
 }
 
@@ -456,18 +458,13 @@ publication section
 #publication .publication {
   border: 1px solid gray;
   border-radius: 4px;
-  padding: .5em;
-  margin: .5em;
+  padding: 0.5em;
+  height: 20em;
 }
 #publication {
   background-color: #f6f6f6;
   text-align: center;
   }
-#publication .container {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
 #publication img {
   width: 100%;
   transition: all 0.4s ease-in-out;
@@ -545,14 +542,25 @@ publication section
 .popup {
   position: fixed;
   padding: 10px;
-  width: 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 180px;
-  top: 50%;
-  margin-top: -100px;
+  width: 50vw;
+  height: 50vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom:0;
+  top: 0;
   background: #FFF;
+  box-shadow: 1px 1px 5px #111;
   z-index: 20;
+}
+.popup-back{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(0,0,0,.5);
 }
 
 /* ==========================================================================
@@ -623,6 +631,10 @@ teaching section
 #teaching .plan .btn:hover {
   background-color: #3B3B3B;
 }
+#TeachOverlay {
+  -webkit-box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+  box-shadow:  0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+}
 
 
 /* ==========================================================================
@@ -645,7 +657,7 @@ contact section
   padding-top: 10px;
   padding-right: 10px;
 }
-#contact .contact-info div {
+#contact .address div {
   padding-top: 14px;
   padding-bottom: 14px;
 }

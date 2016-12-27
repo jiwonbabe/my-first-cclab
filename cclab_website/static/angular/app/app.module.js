@@ -15,6 +15,7 @@ var http_1 = require('@angular/http');
 var project_component_1 = require('./project/project.component');
 var publication_component_1 = require('./publication/publication.component');
 var teaching_component_1 = require('./teaching/teaching.component');
+var people_component_1 = require('./people/people.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,8 +27,8 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 http_1.JsonpModule
             ],
-            declarations: [project_component_1.ProjectComponent, publication_component_1.PublicationComponent, teaching_component_1.TeachingComponent],
-            bootstrap: [project_component_1.ProjectComponent, publication_component_1.PublicationComponent, teaching_component_1.TeachingComponent]
+            declarations: [project_component_1.ProjectComponent, publication_component_1.PublicationComponent, teaching_component_1.TeachingComponent, people_component_1.PeopleComponent],
+            bootstrap: [project_component_1.ProjectComponent, publication_component_1.PublicationComponent, teaching_component_1.TeachingComponent, people_component_1.PeopleComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

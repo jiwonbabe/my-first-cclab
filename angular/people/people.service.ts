@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Publication } from './publication';
-import { Observable } from 'rxjs/Observable';
+import { People } from './people';
+import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
-export class PublicationService{
-  private publicationUrl = '/publication/'
+export class PeopleService{
+  private peopleUrl = '/people/';  //project data 불러오는 url
 
   constructor (private http: Http) {}
 
-  getPublications (page : number): Observable<Publication[]> {
-    return this.http.get(this.publicationUrl + page)
+  getPeoples (): Observable<People[]> {
+    return this.http.get(this.peopleUrl)
                     .map(this.extractData);
   }
   private extractData(res: Response) {

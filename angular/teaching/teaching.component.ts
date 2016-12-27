@@ -13,10 +13,11 @@ import './rxjs-operators';
 export class TeachingComponent implements OnInit {//OnInit 부분 복습 필요
   teachings: Teaching[];
   mode = 'Observable';
+  overlay: Teaching;
   constructor (private teachingService: TeachingService) {}
-  ngOnInit() { this.getTeachings(); }
-  getTeachings() {
-    this.teachingService.getTeachings()
+  ngOnInit() { this.getTeachings(1); }
+  getTeachings(page : number) {
+    this.teachingService.getTeachings(page)
                      .subscribe(
                        teachings => this.teachings = teachings);
   }

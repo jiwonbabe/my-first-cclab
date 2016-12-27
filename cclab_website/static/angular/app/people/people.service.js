@@ -10,25 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var TeachingService = (function () {
-    function TeachingService(http) {
+var PeopleService = (function () {
+    function PeopleService(http) {
         this.http = http;
-        this.teachingUrl = '/teaching/';
+        this.peopleUrl = '/people/'; //project data 불러오는 url
     }
-    TeachingService.prototype.getTeachings = function (page) {
-        return this.http.get(this.teachingUrl + page)
+    PeopleService.prototype.getPeoples = function () {
+        return this.http.get(this.peopleUrl)
             .map(this.extractData);
     };
-    TeachingService.prototype.extractData = function (res) {
+    PeopleService.prototype.extractData = function (res) {
         var body = res.json();
         console.log(body);
         return body || [];
     };
-    TeachingService = __decorate([
+    PeopleService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], TeachingService);
-    return TeachingService;
+    ], PeopleService);
+    return PeopleService;
 }());
-exports.TeachingService = TeachingService;
-//# sourceMappingURL=teaching.service.js.map
+exports.PeopleService = PeopleService;
+//# sourceMappingURL=people.service.js.map

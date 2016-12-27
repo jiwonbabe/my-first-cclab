@@ -6,12 +6,12 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TeachingService{
-  private teachingUrl = '/teaching/:page/';  //django 쪽 문법아닌가?
+  private teachingUrl = '/teaching/';
 
   constructor (private http: Http) {}
 
-  getTeachings (): Observable<Teaching[]> {
-    return this.http.get(this.teachingUrl)
+  getTeachings (page : number): Observable<Teaching[]> {
+    return this.http.get(this.teachingUrl + page)
                     .map(this.extractData);
   }
   private extractData(res: Response) {
