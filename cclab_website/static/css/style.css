@@ -210,6 +210,11 @@ preloader section
 /* ==========================================================================
 navigation section
 ========================================================================== */
+.logo{
+  width: 50px;
+  display: inline-block !important;
+  margin-top: -15px;
+}
 .custom-navbar {
     background: #4B4B4B;
     margin-bottom: 0;
@@ -460,6 +465,7 @@ publication section
   border-radius: 4px;
   padding: 0.5em;
   height: 20em;
+
 }
 #publication {
   background-color: #f6f6f6;
@@ -562,6 +568,9 @@ publication section
   z-index: 10;
   background: rgba(0,0,0,.5);
 }
+.overlay-content{
+  overflow-wrap: break-word;
+}
 
 /* ==========================================================================
 teaching section
@@ -661,32 +670,6 @@ contact section
   padding-top: 14px;
   padding-bottom: 14px;
 }
-#contact form {
-  padding-top: 60px;
-}
-#contact .form-control {
-  border: 2px solid #ffffff;
-  border-radius: 0;
-  box-shadow: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  transition: all 0.4s ease-in-out;
-}
-#contact input {
-  height: 40px;
-}
-#contact input[type="submit"] {
-  background: #00c6d7;
-  border: 3px solid #00c6d7;
-  letter-spacing: 1px;
-  margin-top: 18px;
-  height: 50px;
-  color: #ffffff;
-}
-#contact input[type="submit"]:hover {
-  color: #000000;
-}
-
 
 /* ==========================================================================
 footer section

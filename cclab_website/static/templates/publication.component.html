@@ -10,7 +10,7 @@
     <!--overlay 창 구현-->
     <div class="popup-back" [hidden]="!overlay">
     <div class="popup">
-      <div *ngIf="overlay">
+      <div class="overlay-content" *ngIf="overlay">
         <p>{{ overlay.fields.author }}</p>
         <p>{{ overlay.fields.title}}</p>
         <p>{{ overlay.fields.publisher }}</p>
